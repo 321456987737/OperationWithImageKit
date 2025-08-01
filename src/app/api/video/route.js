@@ -112,12 +112,13 @@ export async function POST(request) {
 export async function GET() {
   try {
     await dbConnect();
+    console.log("Fetching videos from database...123");
     const videos = await Video.find()
       .sort({ createdAt: -1 })
       .limit(10)
       .lean();
-
-    return NextResponse.json(videos);
+    console.log("Videos fetched successfully:", videos.length,"videos found" ,videos);
+      return NextResponse.json(videos);
   } catch (error) {
     console.error("Fetch error:", error);
     return NextResponse.json(
