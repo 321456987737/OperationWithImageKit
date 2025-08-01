@@ -1,9 +1,20 @@
-import { apiClient } from "@/lib/api-client"
 import VideoFeed from "@/components/videofeed"
 
 async function getVideos() {
-  const videos = await apiClient.getVideos()
-  return videos
+  try {
+    // During build time, return empty array to avoid API calls
+    if (process.env.NODE_ENV === 'production' && typeof window === 'undefined') {
+      return [];
+    }
+    
+    // For development or client-side, make the API call
+    const { apiClient } = await import("@/lib/api-client");
+    const videos = await apiClient.getVideos();
+    return videos;
+  } catch (error) {
+    console.error('Failed to fetch videos:', error);
+    return [];
+  }
 }
 
 export default async function Home() {

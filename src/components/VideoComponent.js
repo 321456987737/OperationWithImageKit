@@ -1,5 +1,6 @@
 import { Video } from '@imagekit/next';
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 
 export default function VideoComponent({ video }) {
@@ -64,10 +65,11 @@ export default function VideoComponent({ video }) {
               </div>
             ) : showThumbnail && thumbnailLoaded ? (
               <div className="relative w-full h-full">
-                <img
+                <Image
                   src={video.thumbnailUrl || '/placeholder-thumbnail.svg'}
                   alt={`${video.title} thumbnail`}
-                  className={`w-full h-full object-cover transition-opacity duration-300 ${
+                  fill
+                  className={`object-cover transition-opacity duration-300 ${
                     thumbnailLoaded ? 'opacity-100' : 'opacity-0'
                   }`}
                   onError={(e) => {

@@ -1,6 +1,7 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { useNotification } from "./Notification";
 import { apiClient } from "@/lib/api-client";
 import { generateVideoThumbnail, blobToBase64 } from "@/lib/thumbnail-generator";
@@ -315,11 +316,15 @@ export default function VideoUploadForm() {
                   </div>
                 ) : thumbnailUrl ? (
                   <div className="flex justify-center">
-                    <img
-                      src={thumbnailUrl}
-                      alt="Generated thumbnail"
-                      className="max-w-xs h-auto rounded-lg shadow-sm border"
-                    />
+                    <div className="relative max-w-xs">
+                      <Image
+                        src={thumbnailUrl}
+                        alt="Generated thumbnail"
+                        width={320}
+                        height={180}
+                        className="h-auto rounded-lg shadow-sm border"
+                      />
+                    </div>
                   </div>
                 ) : null}
               </div>
