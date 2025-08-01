@@ -3,9 +3,9 @@ import VideoFeed from "@/components/videofeed"
 async function getVideos() {
   try {
     // During build time, return empty array to avoid API calls
-    // if (process.env.NODE_ENV === 'production' && typeof window === 'undefined') {
-    //   return [];
-    // }
+    if (process.env.NODE_ENV === 'production' && typeof window === 'undefined') {
+      return [];
+    }
     
     // For development or client-side, make the API call
     const { apiClient } = await import("@/lib/api-client");

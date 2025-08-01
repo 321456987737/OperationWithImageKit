@@ -3,7 +3,7 @@ class ApiClient {
     // Use different base URLs for server-side vs client-side
     if (typeof window === 'undefined') {
       // Server-side (including build time) - use localhost or configured URL
-      this.baseURL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
+      this.baseURL = process.env.NEXT_PUBLIC_API_URL || 'https://operation-with-image-kit.vercel.app';
     } else {
       // Client-side - use configured URL or current origin
       this.baseURL = (process.env.NEXT_PUBLIC_API_URL || window.location.origin).replace(/\/$/, '');
