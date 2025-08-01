@@ -1,7 +1,7 @@
 class ApiClient {
   constructor() {
     // Ensure baseURL ends without trailing slash
-    this.baseURL = (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000').replace(/\/$/, '');
+    this.baseURL = (process.env.NEXT_PUBLIC_API_URL || "https://operation-with-image-kit.vercel.app").replace(/\/$/, '');
   }
 
   async fetch(endpoint, options = {}) {
