@@ -34,6 +34,7 @@ class ApiClient {
         method,
         headers: defaultHeaders,
         body: body ? (isFormData ? body : JSON.stringify(body)) : undefined,
+        cache: 'no-cache',
       });
       
       if (showLogs) {

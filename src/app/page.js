@@ -1,5 +1,6 @@
 import VideoFeed from "@/components/videofeed"
 
+export const revalidate = 0; // Disable cache
 async function getVideos() {
   try {
     // During build time, return empty array to avoid API calls
