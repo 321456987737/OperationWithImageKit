@@ -116,7 +116,7 @@ export async function GET() {
     const videos = await Video.find()
       .sort({ createdAt: -1 })
       .limit(10)
-      .lean().cache(false);
+      .lean()
     console.log("Videos fetched successfully:", videos.length,"videos found" ,videos);
       return NextResponse.json(videos);
   } catch (error) {
