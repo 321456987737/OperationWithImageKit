@@ -11,7 +11,7 @@ export default function VideoComponent({ video }) {
 
   useEffect(() => {
     if (video?.thumbnailUrl) {
-      const img = new Image();
+      const img = new window.Image();
       img.src = video.thumbnailUrl;
       img.onload = () => {
         setThumbnailLoaded(true);
